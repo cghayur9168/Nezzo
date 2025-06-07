@@ -1,60 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nezzo.ai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(135deg, #0f1115, #1c1f26);
-        color: #f5f5f5;
-        font-family: 'Inter', sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 1rem;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nezzo.ai</title>
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* full-screen, no scroll */
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: hidden; 
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+    }
 
-      h1 {
-        font-size: 2.2rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        animation: fadeIn 1s ease-out;
-      }
+    /* particles canvas behind */
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
 
-      p {
-        font-size: 1.1rem;
-        max-width: 500px;
-        color: #b5b5b5;
-        line-height: 1.5;
-        animation: fadeIn 1.4s ease-out;
-      }
+    /* center card */
+    .card {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .card h1 {
+      margin: 0 0 1rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #222;
+    }
+    .card p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .card .contact {
+      margin-top: 1.8rem;
+      font-size: 0.95rem;
+      color: #777;
+    }
+    .card .contact a {
+      color: #333;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
-      .contact {
-        margin-top: 2.5rem;
-        font-size: 0.95rem;
-        color: #888;
-        animation: fadeIn 1.8s ease-out;
-      }
+  <!-- particle background -->
+  <div id="particles-js"></div>
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <h1>Modern memory layer for investment banks</h1>
-      <p>
-        We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.
-      </p>
-      <div class="contact">Contact: <a href="mailto:c@nezzo.ai" style="color:#ccc;text-decoration:underline;">c@nezzo.ai</a></div>
+  <!-- content card -->
+  <div class="card">
+    <h1>Modern memory layer for investment banks</h1>
+    <p>We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.</p>
+    <div class="contact">
+      Contact: <a href="mailto:c@nezzo.ai">c@nezzo.ai</a>
     </div>
-  </body>
+  </div>
+
+  <!-- particles.js library from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    /* Basic geometric/hexagon particles */
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 40, "density": { "enable": true, "value_area": 800 }},
+        "color": { "value": ["#6a5acd","#20b2aa","#ff6347","#ffa500"] },
+        "shape": {
+          "type": "polygon",
+          "polygon": { "nb_sides": 6 }
+        },
+        "opacity": {
+          "value": 0.2,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "size": {
+          "value": 15,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": false }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
 </html>

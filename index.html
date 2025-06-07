@@ -8,7 +8,8 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     html, body { width:100%; height:100%; overflow:hidden; font-family:'Inter',sans-serif; }
-    /* Dark gradient */
+
+    /* Animated dark gradient background */
     body {
       background: linear-gradient(135deg, #0A0F27, #1C2235, #131726);
       background-size: 300% 300%;
@@ -19,9 +20,13 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     /* tsParticles canvas */
-    #tsparticles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
-    /* Header */
+    #tsparticles {
+      position:fixed; top:0; left:0; width:100%; height:100%; z-index:0;
+    }
+
+    /* Header with logo */
     header {
       position:absolute; top:0; width:100%; padding:1rem 2rem;
       display:flex; align-items:center;
@@ -29,37 +34,60 @@
       z-index:1;
     }
     header img { height:40px; }
-    header .brand { color:#fff; font-size:1.25rem; font-weight:600; margin-left:0.75rem; }
-    /* Main card */
-    .card {
+    header .brand {
+      color:#fff; font-size:1.25rem; font-weight:600;
+      margin-left:0.75rem;
+    }
+
+    /* Text sits directly on bg */
+    .content {
       position:relative; z-index:1;
       max-width:600px; margin:auto;
       top:50%; transform:translateY(-50%);
-      background:rgba(0,0,0,0.5); border-radius:12px;
-      padding:2rem; text-align:center; color:#fff;
-      box-shadow:0 8px 24px rgba(0,0,0,0.6);
+      padding:0 1rem; text-align:center;
+      color:#fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
-    .card h1 { font-size:2.5rem; margin-bottom:1rem; }
-    .card p { font-size:1.125rem; line-height:1.6; margin-bottom:2rem; }
-    .card .contact { font-size:0.95rem; color:rgba(255,255,255,0.8); }
-    .card .contact a { color:#fff; text-decoration:none; font-weight:600; }
+    .content h1 {
+      font-size:2.5rem; margin-bottom:1rem;
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .content p {
+      font-size:1.125rem; line-height:1.6; margin-bottom:2rem;
+      animation: fadeIn 1.4s ease-out forwards;
+    }
+    .content .contact {
+      font-size:0.95rem; opacity:0.85;
+      animation: fadeIn 1.8s ease-out forwards;
+    }
+    .content .contact a {
+      color:#fff; text-decoration:none; font-weight:600;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Animated network background -->
   <div id="tsparticles"></div>
 
+  <!-- Header -->
   <header>
     <img src="logo.png" alt="Nezzo.ai Logo"/>
     <div class="brand">Nezzo.ai</div>
   </header>
 
-  <div class="card">
+  <!-- Text directly on animation -->
+  <div class="content">
     <h1>Modern memory layer for financial institutions</h1>
     <p>A secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.</p>
     <div class="contact">Contact: <a href="mailto:c@nezzo.ai">c@nezzo.ai</a></div>
   </div>
 
+  <!-- tsParticles lib -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <script>
     tsParticles.load("tsparticles", {

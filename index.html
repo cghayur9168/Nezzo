@@ -4,120 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nezzo.ai</title>
-  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    /* full-screen, no scroll */
-    html, body { 
-      margin: 0; 
-      padding: 0; 
-      width: 100%; 
-      height: 100%; 
-      overflow: hidden; 
+    /* Full-screen, flex-centered */
+    html, body {
+      margin: 0; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
       font-family: 'Inter', sans-serif;
-      background: #f5f7fa;
+      /* Animated gradient background */
+      background: linear-gradient(-45deg, #0A0F27, #1C2235, #0F1023, #1E273F);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%   { background-position:   0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position:   0% 50%; }
     }
 
-    /* particles canvas behind */
-    #particles-js {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-    }
-
-    /* center card */
+    /* Glass-morphism card */
     .card {
-      position: relative;
-      z-index: 1;
       max-width: 600px;
-      margin: auto;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       padding: 2rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       text-align: center;
     }
     .card h1 {
       margin: 0 0 1rem;
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 600;
-      color: #222;
+      color: #FFFFFF;
+      line-height: 1.2;
     }
     .card p {
       margin: 0;
       font-size: 1.1rem;
-      color: #555;
-      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
     }
-    .card .contact {
-      margin-top: 1.8rem;
+    .contact {
+      margin-top: 2rem;
       font-size: 0.95rem;
-      color: #777;
+      color: rgba(255,255,255,0.6);
     }
-    .card .contact a {
-      color: #333;
-      text-decoration: underline;
+    .contact a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <!-- particle background -->
-  <div id="particles-js"></div>
-
-  <!-- content card -->
   <div class="card">
     <h1>Modern memory layer for investment banks</h1>
-    <p>We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.</p>
+    <p>
+      We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.
+    </p>
     <div class="contact">
       Contact: <a href="mailto:c@nezzo.ai">c@nezzo.ai</a>
     </div>
   </div>
-
-  <!-- particles.js library from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    /* Basic geometric/hexagon particles */
-    particlesJS('particles-js', {
-      "particles": {
-        "number": { "value": 40, "density": { "enable": true, "value_area": 800 }},
-        "color": { "value": ["#6a5acd","#20b2aa","#ff6347","#ffa500"] },
-        "shape": {
-          "type": "polygon",
-          "polygon": { "nb_sides": 6 }
-        },
-        "opacity": {
-          "value": 0.2,
-          "random": true,
-          "anim": { "enable": false }
-        },
-        "size": {
-          "value": 15,
-          "random": true,
-          "anim": { "enable": false }
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": false }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
 
 </body>
 </html>

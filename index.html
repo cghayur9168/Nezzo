@@ -2,35 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nezzo.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <style>
       body {
-        font-family: sans-serif;
-        background-color: #f9f9f9;
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #0f1115, #1c1f26);
+        color: #f5f5f5;
+        font-family: 'Inter', sans-serif;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         text-align: center;
-        margin: 0;
-        padding: 0;
+        padding: 0 1rem;
       }
+
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        font-weight: 600;
         margin-bottom: 1rem;
+        animation: fadeIn 1s ease-out;
       }
+
       p {
         font-size: 1.1rem;
-        color: #555;
-        max-width: 400px;
+        max-width: 500px;
+        color: #b5b5b5;
+        line-height: 1.5;
+        animation: fadeIn 1.4s ease-out;
+      }
+
+      .contact {
+        margin-top: 2.5rem;
+        font-size: 0.95rem;
+        color: #888;
+        animation: fadeIn 1.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
     </style>
   </head>
   <body>
     <div>
       <h1>Modern memory layer for investment banks</h1>
-      <p>We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.</p>
+      <p>
+        We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.
+      </p>
+      <div class="contact">Contact: <a href="mailto:c@nezzo.ai" style="color:#ccc;text-decoration:underline;">c@nezzo.ai</a></div>
     </div>
   </body>
 </html>

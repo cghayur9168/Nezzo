@@ -1,74 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nezzo.ai</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    /* Full-screen, flex-centered */
+    /* Base reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
-      margin: 0; height: 100vh;
-      display: flex; align-items: center; justify-content: center;
+      height: 100%;
       font-family: 'Inter', sans-serif;
-      /* Animated gradient background */
-      background: linear-gradient(-45deg, #0A0F27, #1C2235, #0F1023, #1E273F);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0%   { background-position:   0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position:   0% 50%; }
+      overflow: hidden;
     }
 
-    /* Glass-morphism card */
-    .card {
-      max-width: 600px;
-      padding: 2rem 1.5rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      text-align: center;
+    /* Animated gradient background */
+    body {
+      background: linear-gradient(135deg, #0A0F27, #1C2235, #0F1023, #1E273F);
+      background-size: 300% 300%;
+      animation: gradientShift 15s ease infinite;
+      display: flex;
+      flex-direction: column;
     }
-    .card h1 {
-      margin: 0 0 1rem;
-      font-size: 2.5rem;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header with logo */
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0; width: 100%;
+      background: rgba(10,15,39, 0.6);
+      backdrop-filter: blur(10px);
+    }
+    header img {
+      height: 40px;
+    }
+    header .brand {
+      color: #fff;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: #FFFFFF;
+      margin-left: 0.75rem;
+    }
+
+    /* Hero section */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: 2.75rem;
+      font-weight: 600;
       line-height: 1.2;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      animation: fadeIn 1s ease-out forwards;
     }
-    .card p {
-      margin: 0;
-      font-size: 1.1rem;
+    .hero p {
       color: rgba(255,255,255,0.85);
+      font-size: 1.125rem;
+      max-width: 600px;
       line-height: 1.6;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.4s ease-out forwards;
     }
-    .contact {
-      margin-top: 2rem;
+    .hero .contact {
+      color: rgba(255,255,255,0.7);
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.6);
+      animation: fadeIn 1.8s ease-out forwards;
     }
-    .contact a {
-      color: #FFFFFF;
+    .hero .contact a {
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Modern memory layer for investment banks</h1>
-    <p>
-      We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.
-    </p>
-    <div class="contact">
-      Contact: <a href="mailto:c@nezzo.ai">c@nezzo.ai</a>
-    </div>
-  </div>
+  <header>
+    <img src="logo.png" alt="Nezzo Logo"/>
+    <div class="brand">Nezzo.ai</div>
+  </header>
+
+  <section class="hero">
+    <h1>Modern memory layer for financial institutions</h1>
+    <p>We’re building a secure intelligence layer that helps financial institutions organize, retain, and reason over their institutional knowledge.</p>
+    <div class="contact">Contact: <a href="mailto:c@nezzo.ai">c@nezzo.ai</a></div>
+  </section>
 
 </body>
 </html>
